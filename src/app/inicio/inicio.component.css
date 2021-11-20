@@ -1,0 +1,85 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 35px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+}
+
+.login {
+    align-items: flex-end;
+}
+
+.imagen {
+    width: 150px;
+    height: 150px;
+}
+
+.text-item {
+    display: inline-block;
+    color: #000000;
+    padding: 3px;
+}
+
+.text-item:hover {
+    border-bottom: 1.8px solid #55bb55;
+}
+
+.text-it {
+    display: inline-block;
+    color: #888888;
+    border: 2px solid #55bb55;
+    padding: 4px;
+    font-size: 90%;
+}
+
+.text-it:hover {
+    background: linear-gradient(30deg, LimeGreen,YellowGreen, SeaGreen, ForestGreen, LightGreen);
+    color: #ffffff;
+    outline: 1px ridge rgba(71, 211, 5, 0.6);
+}
+
+.cuerpo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 300px;
+    grid-gap: 50px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card {
+    text-align: center;
+}
+
+.producto {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+}
