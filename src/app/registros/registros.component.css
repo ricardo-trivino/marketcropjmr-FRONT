@@ -1,0 +1,143 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 35px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+}
+
+.login {
+    align-items: flex-end;
+}
+
+.imagen {
+    width: 150px;
+    height: 150px;
+}
+
+.text-item {
+    display: inline-block;
+    color: #000000;
+    padding: 3px;
+}
+
+.text-item:hover {
+    border-bottom: 1.8px solid #55bb55;
+}
+
+.text-it {
+    display: inline-block;
+    color: #888888;
+    border: 2px solid #55bb55;
+    padding: 4px;
+    font-size: 90%;
+}
+
+.text-it:hover {
+    background: linear-gradient(30deg, LimeGreen,YellowGreen, SeaGreen, ForestGreen, LightGreen);
+    color: #ffffff;
+    outline: 1px ridge rgba(71, 211, 5, 0.6);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.registrar {
+    outline: 1.5px solid #55bb55;
+    border-radius: 80px 20px;
+    transform: scale(1.1, 1.1);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    opacity: 0.6;
+}
+
+h2 {
+    margin: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+}
+
+label {
+    opacity: 0.3;
+    box-shadow: 10px 10px 8px 5px rgba(0.5, 0.5, 0.2, 0.2);
+}
+
+label:focus-within {
+    opacity: 1;
+}
+
+button {
+    border-radius: 3px;
+    padding: 1px;
+    background: linear-gradient(30deg, LimeGreen,YellowGreen, LightGreen, YellowGreen, LightGreen);
+}
+
+button:hover {
+    cursor: pointer;
+    background: linear-gradient(30deg, LightGreen,YellowGreen, LightGreen, YellowGreen, LimeGreen);
+    outline: 1px ridge rgba(71, 211, 5, 0.6);;
+    transition: 0.5s;
+}
+
+section {
+    display: flex;
+    justify-content: right;
+}
+
+.adorno {
+    display: inline-block;
+    filter: contrast(40);
+    background-color: #fff;
+    transform:translateY(-600px);
+}
+
+.caja {
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    background: #84C639;
+    margin: 24px;
+    border-radius: 50%;
+    filter: blur(15px);
+}
+
+.caja:first-child {
+    animation: trasladar 3s alternate infinite;
+}
+
+@keyframes trasladar {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(115px);
+    }
+}
+
+footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+}

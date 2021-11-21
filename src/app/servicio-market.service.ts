@@ -30,4 +30,13 @@ export class ServicioMarketService {
     );*/
 
   }
+
+  // Método para insertar un nuevo Tipo de documento 
+  async insertCliente(ClienteD: any): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.Url + "/registro/registrarse", ClienteD, httpOptions).toPromise()
+    });
+
+  }
 }

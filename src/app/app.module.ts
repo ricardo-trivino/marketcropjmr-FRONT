@@ -13,6 +13,7 @@ import { ServicioMarketService } from './servicio-market.service';
 import { AppComponent } from '../app/appcomponent/app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProductosComponent } from './productos/productos.component';
+import { RegistrosComponent } from './registros/registros.component';
 
 //========================================================================
 const appRoutes: Routes =
@@ -29,6 +30,10 @@ const appRoutes: Routes =
     {
       path: 'Producto',
       component: ProductosComponent,
+    },
+    {
+      path: 'Registro',
+      component: RegistrosComponent,
     }
   ]
 
@@ -39,6 +44,7 @@ const appRoutes: Routes =
     AppComponent,
     InicioComponent,
     ProductosComponent,
+    RegistrosComponent,
   ],
   imports: [
     BrowserModule,
