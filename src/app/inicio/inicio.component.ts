@@ -26,11 +26,24 @@ export class InicioComponent implements OnInit {
       Router: Router
     ) { }
 
+  //Consultar todos los tipos de documentos
+  public consultaProductos() {
+    this.servi.getExportProductos().subscribe((data: any) => {
+      //var productos = data;
+      this.Productos = data;
+    });
+  }
+
   ngOnInit(): void {
     this.ListaProductos = this.formBuilder.group(
       {
 
       });
+    //se invoca el servicio y se cargan los productos
+    this.servi.getExportProductos().subscribe((data: { productos: [] }) => {
+      this.Productos = data;
+    },
+      error => { console.error(error + " ") });
   }
 
 }

@@ -25,9 +25,9 @@ export class ServicioMarketService {
   //Método para exportar los productos
   getExportProductos(): Observable<any> {
 
-    return this.http.get(this.Url + "/producto", httpOptions).pipe(
+    return this.http.get(this.Url + "/producto", httpOptions)/*.pipe(
       map(this.extractData)
-    );
-    
+    );*/
+
   }
 }

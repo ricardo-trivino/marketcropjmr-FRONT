@@ -54,31 +54,14 @@
         </nav>
     </header>
 
-    <main class="cuerpo">
-        <div class="card">
-            <a href="#" class="producto">
-                <img src="../assets/manzana.jpg" alt="manzana">
-                <span>Manzana x und</span>
-            </a>
-        </div>
-        <div class="card">
-            <a href="#" class="producto">
-                <img src="../assets/naranja.jpg" alt="naranja">
-                <span>Naranja x und</span>
-            </a>
-        </div>
-        <div class="card">
-            <a href="#" class="producto">
-                <img src="../assets/pina.jpg" alt="pina">
-                <span>Piña x kg</span>
-            </a>
-        </div>
-        <div class="card">
-            <a href="#" class="producto">
-                <img src="../assets/tomate.jpg" alt="tomate">
-                <span>Tomate x kg</span>
-            </a>
-        </div>
+    <main>
+        <form [formGroup]="ListaProductos" class="cuerpo">
+            <span *ngFor="let prod of Productos" class="card">
+                <img src="../assets/{{prod.img_prod}}" alt="manzana" class="producto">
+                <h2>{{prod.nombre_prod}}</h2>
+                <h2>{{prod.precio_prod}}</h2>
+            </span>
+        </form>
     </main>
 
     <footer>
