@@ -14,6 +14,7 @@ import { AppComponent } from '../app/appcomponent/app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistrosComponent } from './registros/registros.component';
+import { LoginsComponent } from './logins/logins.component';
 
 //========================================================================
 const appRoutes: Routes =
@@ -34,6 +35,10 @@ const appRoutes: Routes =
     {
       path: 'Registro',
       component: RegistrosComponent,
+    },
+    {
+      path: 'Login',
+      component: LoginsComponent,
     }
   ]
 
@@ -45,6 +50,7 @@ const appRoutes: Routes =
     InicioComponent,
     ProductosComponent,
     RegistrosComponent,
+    LoginsComponent,
   ],
   imports: [
     BrowserModule,

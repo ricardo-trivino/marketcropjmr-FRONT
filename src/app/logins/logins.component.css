@@ -57,9 +57,10 @@ ul {
 main {
     display: flex;
     justify-content: center;
+    margin-top: 150px;
 }
 
-.registrar {
+.loggear {
     outline: 1.5px solid #55bb55;
     border-radius: 80px 20px;
     transform: scale(1.1, 1.1);
@@ -98,7 +99,7 @@ button {
 button:hover {
     cursor: pointer;
     background: linear-gradient(30deg, LightGreen,YellowGreen, LightGreen, YellowGreen, LimeGreen);
-    outline: 1px ridge rgba(71, 211, 5, 0.6);;
+    outline: 1px ridge rgba(71, 211, 5, 0.6);
     transition: 0.1s;
     font-weight: bold;
 }
@@ -112,7 +113,7 @@ section {
     display: inline-block;
     filter: contrast(40);
     background-color: #fff;
-    transform:translateY(-600px);
+    transform:translateY(-450px);
 }
 
 .caja {

@@ -13,7 +13,8 @@ const httpOptions =
 export class ServicioMarketService {
 
   private Url: string = 'http://localhost:3000';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
   // Método Listar de los productos
   getProductos(): Observable<any> {
@@ -31,7 +32,7 @@ export class ServicioMarketService {
 
   }
 
-  // Método para insertar un nuevo Tipo de documento 
+  // Método para registrar un cliente 
   async insertCliente(ClienteD: any): Promise<any> {
 
     return new Promise((resolve, reject) => {
@@ -39,4 +40,12 @@ export class ServicioMarketService {
     });
 
   }
+
+  // Método iniciar sesión
+  Login(LoginD: any): Observable<any> {
+
+    return this.http.post(this.Url + "/auth/login", LoginD, httpOptions);
+
+  }
+
 }
