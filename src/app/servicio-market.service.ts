@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 
 const httpOptions =
 {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem("session_us") })
 };
 
 @Injectable({
@@ -13,20 +13,24 @@ const httpOptions =
 export class ServicioMarketService {
 
   private Url: string = 'http://localhost:3000';
+  //headers = new HttpHeaders();
+
   constructor(private http: HttpClient) {
+    /*this.headers.append("Content-Type", "aplication/json");
+    this.headers.append("Authorization", "Bearer " + localStorage.getItem("session_us"));*/
    }
 
   // Método Listar de los productos
   getProductos(): Observable<any> {
 
-    return this.http.get(this.Url + "/producto", httpOptions);
+    return this.http.get(this.Url + "/producto", httpOptions /*{headers: this.headers}*/);
 
   }
 
   //Método para exportar los productos
   getExportProductos(): Observable<any> {
 
-    return this.http.get(this.Url + "/producto", httpOptions)/*.pipe(
+    return this.http.get(this.Url + "/producto", httpOptions /*{headers: this.headers}*/);/*.pipe(
       map(this.extractData)
     );*/
 
@@ -36,7 +40,7 @@ export class ServicioMarketService {
   async insertCliente(ClienteD: any): Promise<any> {
 
     return new Promise((resolve, reject) => {
-      this.http.post(this.Url + "/registro/registrarse", ClienteD, httpOptions).toPromise()
+      this.http.post(this.Url + "/registro/registrarse", ClienteD, httpOptions /*{headers: this.headers}*/).toPromise()
     });
 
   }
@@ -44,7 +48,7 @@ export class ServicioMarketService {
   // Método iniciar sesión
   Login(LoginD: any): Observable<any> {
 
-    return this.http.post(this.Url + "/auth/login", LoginD, httpOptions);
+    return this.http.post(this.Url + "/auth/login", LoginD, httpOptions /*{headers: this.headers}*/);
 
   }
 

@@ -38,11 +38,9 @@ export class LoginsComponent implements OnInit {
 
     this.servi.Login(cadena).subscribe((data: {}) => {
       var valor = JSON.stringify(data);
-      localStorage.setItem("session_us", valor);
-      //this.token = data;
+      this.token = valor.substring(10, 199);
+      localStorage.setItem("session_us", this.token);
       //this.cookieService.set(cookie,this.token)
-      /*var valor =  JSON.stringify(data);
-      this.token = valor.substring(37, 226);*/
     }, error => { console.log(error) });
     this.LogginGCliente.reset();
   }

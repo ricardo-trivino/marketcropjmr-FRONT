@@ -15,6 +15,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ProductosComponent } from './productos/productos.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { LoginsComponent } from './logins/logins.component';
+import { AdminComponent } from './admin/admin.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 //========================================================================
 const appRoutes: Routes =
@@ -51,6 +53,8 @@ const appRoutes: Routes =
     ProductosComponent,
     RegistrosComponent,
     LoginsComponent,
+    AdminComponent,
+    ClienteComponent,
   ],
   imports: [
     BrowserModule,
