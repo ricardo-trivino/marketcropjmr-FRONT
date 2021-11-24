@@ -1,0 +1,8 @@
+<body>
+    <form [formGroup]="ListaUsuarios" class="cuerpo">
+        <span *ngFor="let us of Usuarios" class="card">
+            <h2>{{us.pnombre_us}}</h2>
+            <h2>{{us.papellido_us}}</h2>
+        </span>
+    </form>
+</body>
