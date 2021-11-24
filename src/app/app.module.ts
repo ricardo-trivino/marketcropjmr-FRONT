@@ -26,6 +26,7 @@ import { BlogComponent } from './blog/blog.component';
 import { WebComponent } from './web/web.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { PqrComponent } from './pqr/pqr.component';
+import { TiposDocComponent } from './tipos-doc/tipos-doc.component';
 
 //========================================================================
 const appRoutes: Routes =
@@ -87,6 +88,10 @@ const appRoutes: Routes =
       path: 'Pqr',
       component: PqrComponent,
     },
+    {
+      path: 'Tip-doc',
+      component: TiposDocComponent,
+    }
   ]
 
 //========================================================================
@@ -107,6 +112,7 @@ const appRoutes: Routes =
     WebComponent,
     ContactoComponent,
     PqrComponent,
+    TiposDocComponent,
   ],
   imports: [
     BrowserModule,

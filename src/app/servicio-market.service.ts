@@ -21,17 +21,56 @@ export class ServicioMarketService {
     this.headers.append("Authorization", "Bearer " + localStorage.getItem("session_us"));*/
   }
 
+  // Método Listar de los Tipos de documentos 
+  getTiposDoc(): Observable<any> {
+
+    return this.http.get(this.Url + "/tipodoc", httpOptions);
+
+  }
+
+  // Método mostrar un solo Tipo de documento
+  getTipoDoc(id: any): Observable<any> {
+
+    return this.http.get(this.Url + "/tipodoc" + id, httpOptions);
+
+  }
+
+  getExportTiposDoc(): Observable<any> {
+
+    return this.http.get(this.Url + "/tipodoc", httpOptions)/*.pipe(
+      map(this.extractData)    
+    );*/
+  }
+
+  // Método para insertar un nuevo Tipo de documento 
+  async insertTipoDoc(TipDocD: any): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.Url + "/tipodoc", TipDocD, httpOptions).toPromise()
+    });
+
+  }
+
+  // Método para modificar un  Tipo de documento
+  async updateTipoDoc(cadena: any): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.http.put(this.Url + "/tipodoc", cadena, httpOptions).toPromise()
+    });
+
+  }
+
   // Método Listar de los productos
   getProductos(): Observable<any> {
 
-    return this.http.get(this.Url + "/producto",  httpOptions );
+    return this.http.get(this.Url + "/producto", httpOptions);
 
   }
 
   //Método para exportar los productos
   getExportProductos(): Observable<any> {
 
-    return this.http.get(this.Url + "/producto", httpOptions );/*.pipe(
+    return this.http.get(this.Url + "/producto", httpOptions);/*.pipe(
       map(this.extractData)
     );*/
 
@@ -41,7 +80,7 @@ export class ServicioMarketService {
   async insertCliente(ClienteD: any): Promise<any> {
 
     return new Promise((resolve, reject) => {
-      this.http.post(this.Url + "/registro/registrarse", ClienteD, httpOptions ).toPromise()
+      this.http.post(this.Url + "/registro/registrarse", ClienteD, httpOptions).toPromise()
     });
 
   }
@@ -66,12 +105,12 @@ export class ServicioMarketService {
   // Método Listar de los usuarios
   getUsuarios(): Observable<any> {
 
-    return this.http.get(this.Url + "/usuario", httpOptions );
+    return this.http.get(this.Url + "/usuario", httpOptions);
 
   }
 
   getRol(): Observable<any> {
-    return this.http.get(this.Url + "/usuario", httpOptions );
+    return this.http.get(this.Url + "/usuario", httpOptions);
   }
 
 }

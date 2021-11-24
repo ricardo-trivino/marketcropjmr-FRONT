@@ -1,0 +1,108 @@
+.adorno {
+    display: inline-block;
+    filter: contrast(30);
+    z-index: 50;
+    background-color: #ffffff;
+}
+
+.head {
+    display: inline-block;
+    margin-left: 26.5%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.encabezado {
+    padding-top: 35px;
+    position: fixed;
+    width: 100vw;
+    z-index: 99;
+    background-color: #ffffff;
+}
+
+.encabezado a {
+    position:fixed;
+    top: 209px;
+    left: 248px;
+    font-family: "candara", "ginebra";
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+}
+
+.encabezado a:hover {
+    font-size: 100.5%;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.caja {
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    background: #08f;
+    margin: 24px;
+    border-radius: 50%;
+    filter: blur(15px);
+}
+
+.caja:first-child {
+    animation: trasladar 3s alternate infinite;
+}
+
+@keyframes trasladar {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(115px);
+    }
+}
+
+img {
+    margin-top: 45px;
+}
+
+main {
+    margin-top: 250px;
+    padding-bottom: 220px;
+}
+
+.cuerpo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-rows: 200px;
+    grid-gap: 85px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card {
+    text-align: center;
+    padding: 8px;
+}
+
+.producto {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.comprar {
+    display: inline-block;
+    color: #888888;
+    border: 2px solid #55bb55;
+    padding: 4px;
+    font-size: 90%;
+}
+
+footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+}

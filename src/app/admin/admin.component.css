@@ -1,0 +1,89 @@
+.adorno {
+    display: inline-block;
+    filter: contrast(30);
+    z-index: 50;
+    background-color: #ffffff;
+}
+
+.head {
+    display: inline-block;
+    margin-left: 26.5%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.encabezado {
+    margin-top: 35px;
+    position: fixed;
+    width: 100vw;
+    z-index: 99;
+    background-color: #ffffff;
+}
+
+.encabezado a {
+    position:fixed;
+    top: 209px;
+    left: 248px;
+    font-family: "candara", "ginebra";
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+}
+
+.encabezado a:hover {
+    font-size: 100.5%;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.caja {
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    background: #08f;
+    margin: 24px;
+    border-radius: 50%;
+    filter: blur(15px);
+}
+
+.caja:first-child {
+    animation: trasladar 3s alternate infinite;
+}
+
+@keyframes trasladar {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(115px);
+    }
+}
+
+img {
+    margin-top: 45px;
+}
+
+.menu {
+    margin-top: 410px;
+    margin-left: 48px;
+    text-align:center;
+}
+
+.menu a{
+    font-family: "candara", "ginebra";
+    text-decoration: none;
+    color: #000000;
+}
+
+.menu a:hover{
+    transition: ease-in-out 0.35s;
+    text-shadow: 10px 10px 5px #bbbbbb;
+}
+
+footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+}

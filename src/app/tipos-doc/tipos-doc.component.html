@@ -1,0 +1,136 @@
+<body>
+
+    <div class="encabezado">
+        <div class="adorno">
+            <div class="caja"></div>
+            <div class="caja"></div>
+        </div>
+        <a routerLink="/Admin" class="enlace">Panel Admin</a>
+        <div style="text-align:center" class="head">
+            <h1>
+                {{ title }}
+            </h1>
+            <img width="200" alt="Logo Market Crop JMR" src="../assets/free-logo-ab5z9h21kt-erawbz29qu.jpg">
+        </div>
+    </div>
+
+    <div class="cuerpo">
+        <!--mostrar lista tipos de identificación-->
+        <div class="lista">
+            <h2> Lista de los tipos de documento</h2>
+            <form (ngSubmit)="consultaTiposDoc(1)" [formGroup]="ListaTiposDoc">
+                <button type="submit" style="margin-right: 30px"> Mostrar lista de tipos de documento</button>
+                <button (click)="LimpiarLista()" style="scroll-margin-left: 30px"> Limpiar lista todos los tipos de
+                    identificación</button>
+                <br><br>
+                <h2>{{TituloTiposDoc}}</h2>
+                <table>
+                    <thead>
+                        <th>{{TablaTiposDoc[0]}}</th>
+                        <th>{{TablaTiposDoc[1]}}</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tdoc of TiposDoc">
+                            <th>{{tdoc.id_tipo_doc}}</th>
+                            <th>{{tdoc.tipo_doc}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <br><br><br>
+
+        <!-- para mostrar un solo tipo de documento -->
+        <div class="buscar">
+
+            <h2>Mostrar el tipo de documento seleccionado: </h2>
+
+            <form (ngSubmit)="buscarTipoDoc()" [formGroup]="filtrarTipoDoc">
+                Tipo de documento a mostrar
+                <select class="dropdown" formControlName="combofiltro" (click)="consultaTiposDoc(2)">
+                    <option value="value1">Tipo de documento a buscar</option>
+                    <option *ngFor="let TipoDoc of comboListaTipoDoc" [value]="TipoDoc.id_tipo_doc">
+                        {{TipoDoc.tipo_doc}}
+                    </option>
+                </select>
+                <br><br><br>
+                <button type="submit">Buscar tipo documento</button>
+            </form>
+            <ul>
+                <h2>{{TituloTipoDoc}}</h2>
+                <table class="tabBuscar">
+                    <thead class="Colb">
+                        <th class="b">{{TabBusTiposDoc[0]}}</th>
+                        <th class="b">{{TabBusTiposDoc[1]}}</th>
+                    </thead>
+
+                    <tbody class="Filb">
+                        <tr class="b" *ngFor="let tdoc of MiTipoDoc">
+                            <th class="b">{{tdoc.id_tipo_doc}}</th>
+                            <th class="b">{{tdoc.tipo_doc}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
+
+
+        </div>
+        <br><br><br>
+
+        <!-- para crear un  tipo de documento -->
+        <div class="crea">
+
+            <h2>Registrar un nuevo tipo de documento</h2>
+
+            <form (ngSubmit)="InsertarTipoDoc()" [formGroup]="InsertarGTipoDoc">
+                Nuevo tipo de documento
+                <label for="CTipoDoc"><input type="text" name="CTipoDoc" id="CTipoDoc"
+                        formControlName="textTipoDoc"></label>
+                <br><br>
+                <button type="submit">Insertar tipo de documento</button>
+            </form>
+            <br><br>
+
+        </div>
+        <br><br><br>
+
+        <!-- para actualizar un tipo de documento -->
+        <div class="edit">
+
+            <h2> Tipo de documento a editar</h2>
+            <form (ngSubmit)="buscarEditarTipoDoc()" [formGroup]="ActualizarATipoDoc">
+                Tipo de documento a editar:
+                <select class="dropdown" formControlName="BuscarIdTipoDoc" (click)="consultaTiposDoc(3)">
+                    <option value="value1">Tipo de documento a editar</option>
+                    <option *ngFor="let TDoc of comboEditarTipoDoc" [value]="TDoc.id_tipo_doc">
+                        {{TDoc.tipo_doc}}
+                    </option>
+                </select>
+                <br><br>
+                <button type="submit">Buscar tipo documento a editar</button>
+                <h2>{{TituloTipoDocEdit}}</h2>
+                <li *ngFor="let Doc of MiTipoDocE">
+                    Nuevo tipo documento
+                    <label for="ETipoDoc"><input type="text" name="ETipoDoc" id="ETipoDoc" value={{Doc.tipo_doc}}
+                            [(ngModel)]="Doc.tipo_doc" formControlName="textnuevotipodoc"></label>
+                    <br><br>
+                </li>
+                <br><br>
+                <button (click)="ActualizarTipoDoc()">Actualizar</button>
+            </form>
+            <br>
+
+        </div>
+        <br><br><br>
+    </div>
+
+    <footer>
+        <!-- Generated by https://smooth.ie/blogs/news/svg-wavey-transitions-between-sections -->
+        <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                style="height: 100%; width: 100%;">
+                <path d="M0.28,4.45 C75.33,37.98 58.41,126.80 200.80,150.00 L0.00,150.00 L-18.34,-8.38 Z"
+                    style="stroke: none; fill: #08f;"></path>
+            </svg></div>
+    </footer>
+
+</body>

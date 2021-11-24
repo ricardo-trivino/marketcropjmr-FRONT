@@ -63,9 +63,16 @@
 
             <form (ngSubmit)="InsertarCliente()" [formGroup]="InsertarGCliente">
                 <div>
-                    Tipo de documento
+                    <!--Tipo de documento
                     <label for="TipDocCliente"><input type="text" name="TipDocCliente" id="TipDocCliente"
-                            formControlName="textTipoDocUs"></label>
+                            formControlName="textTipoDocUs"></label>-->
+                        Tipo de documento
+                    <select formControlName="ComboTipoDocPersona" required>
+                        <option value="" selected>Selecciona una opción</option>
+                        <option *ngFor="let tipoDocumento of tiposDocumentos" value="{{ tipoDocumento.id_tipo_doc }}">
+                            {{ tipoDocumento.tipo_doc }}
+                        </option>
+                    </select>
                 </div>
                 <br>
                 <div>

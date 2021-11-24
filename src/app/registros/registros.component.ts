@@ -12,9 +12,11 @@ import { ServicioMarketService } from '../servicio-market.service';
 })
 export class RegistrosComponent implements OnInit {
 
+  tiposDocumentos: any = []; //Vector que captura la data para el combo de los tipos de documentos 
+
   InsertarGCliente = new FormGroup(
     {
-      textTipoDocUs: new FormControl(),
+      ComboTipoDocPersona: new FormControl(),
       textNumDocUs: new FormControl(),
       textPNombreUs: new FormControl(),
       textSNombreUs: new FormControl(),
@@ -25,38 +27,60 @@ export class RegistrosComponent implements OnInit {
     });
 
   constructor
-  (
-    private formBuilder: FormBuilder,
-    private servi: ServicioMarketService,
-    Router: Router
-  ) { }
+    (
+      private formBuilder: FormBuilder,
+      private servi: ServicioMarketService,
+      Router: Router
+    ) { }
 
-    //Insertar un cliente
-    public InsertarCliente() {
+  //Insertar un cliente
+  public InsertarCliente() {
 
-      var datosvalor1 = this.InsertarGCliente.getRawValue()['textTipoDocUs'];
-      var datosvalor2 = this.InsertarGCliente.getRawValue()['textNumDocUs'];
-      var datosvalor3 = this.InsertarGCliente.getRawValue()['textPNombreUs'];
-      var datosvalor4 = this.InsertarGCliente.getRawValue()['textSNombreUs'];
-      var datosvalor5 = this.InsertarGCliente.getRawValue()['textPApellidoUs'];
-      var datosvalor6 = this.InsertarGCliente.getRawValue()['textSApellidoUs'];
-      var datosvalor7 = this.InsertarGCliente.getRawValue()['textContrasenaUs'];
-      var datosvalor8 = this.InsertarGCliente.getRawValue()['textNickNameUs'];
-      var cadena = { "tipo_doc_us": datosvalor1, "num_doc_us": datosvalor2, "pnombre_us": datosvalor3, "snombre_us": datosvalor4,
-    "papellido_us":datosvalor5, "sapellido_us": datosvalor6, "contrasena_us": datosvalor7, "nickname_us": datosvalor8 };
-  
-      this.servi.insertCliente(cadena).then
-        (res => {
-          console.log(res)
-        }
-        ).catch(err => {
-          console.log(err)
-        });
-      this.InsertarGCliente.reset();
-  
-    }
+    var datosvalor1 = this.InsertarGCliente.getRawValue()['ComboTipoDocPersona'];
+    var datosvalor2 = this.InsertarGCliente.getRawValue()['textNumDocUs'];
+    var datosvalor3 = this.InsertarGCliente.getRawValue()['textPNombreUs'];
+    var datosvalor4 = this.InsertarGCliente.getRawValue()['textSNombreUs'];
+    var datosvalor5 = this.InsertarGCliente.getRawValue()['textPApellidoUs'];
+    var datosvalor6 = this.InsertarGCliente.getRawValue()['textSApellidoUs'];
+    var datosvalor7 = this.InsertarGCliente.getRawValue()['textContrasenaUs'];
+    var datosvalor8 = this.InsertarGCliente.getRawValue()['textNickNameUs'];
+    var cadena = {
+      "tipo_doc_us": datosvalor1, "num_doc_us": datosvalor2, "pnombre_us": datosvalor3, "snombre_us": datosvalor4,
+      "papellido_us": datosvalor5, "sapellido_us": datosvalor6, "contrasena_us": datosvalor7, "nickname_us": datosvalor8
+    };
 
-  ngOnInit(): void {
+    this.servi.insertCliente(cadena).then
+      (res => {
+        console.log(res)
+      }
+      ).catch(err => {
+        console.log(err)
+      });
+    this.InsertarGCliente.reset();
+
+  }
+
+  ngOnInit() {
+    //se construye el grupo de formulario y sus controles al iniciar la página
+    this.InsertarGCliente = this.formBuilder.group(
+      {
+        ComboTipoDocPersona: [],
+        textNumDocUs: [],
+        textPNombreUs: [],
+        textSNombreUs: [], 
+        textPApellidoUs: [],
+        textSApellidoUs: [],
+        textContrasenaUs: [],
+        textNickNameUs: []
+      });
+
+      //se invoca el servicio y se carga el combobox de los tipos de documentos
+      this.servi.getExportTiposDoc().subscribe((data: {tiposdocumentos:[]}) => 
+      { 
+        this.tiposDocumentos = data;
+        console.log(this.tiposDocumentos);
+      },
+      error => { console.error(error + " ") });
   }
 
 }
