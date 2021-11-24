@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import { ServicioMarketService } from '../servicio-market.service';
+import { ClienteComponent } from '../cliente/cliente.component';
 
 @Component({
   selector: 'app-logins',
@@ -26,7 +27,8 @@ export class LoginsComponent implements OnInit {
     (
       private formBuilder: FormBuilder,
       private servi: ServicioMarketService,
-      Router: Router
+      Router: Router,
+      private router:Router
     ) { }
 
   //Insertar un cliente
@@ -40,14 +42,11 @@ export class LoginsComponent implements OnInit {
 
     this.servi.Login(cadena).subscribe((data: {}) => {
       var valor = JSON.stringify(data);
-      //this.token = valor.substring(10, 199);
       this.token = valor.substring(10, 199);
-      //this.servi.guardarToken(this.token);
       this.guardarToken(this.token);
-      //localStorage.getItem("session_us")
+      window.location.reload();
       //alert(this.token);
       //localStorage.setItem("session_us", this.token);
-      //this.cookieService.set(cookie,this.token)
     }, error => { console.log(error) });
     this.LogginGCliente.reset();
   }
@@ -59,6 +58,7 @@ export class LoginsComponent implements OnInit {
 
   leerToken() {
     localStorage.getItem("token");
+    //localStorage.getItem("session_us")
   }
 
   public getRol() {
@@ -72,6 +72,21 @@ export class LoginsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //se invoca el servicio para obtener el rol
+    this.servi.getRol().subscribe((data: { roles: [] }) => {
+      //this.rol = JSON.stringify(data);
+      var valor = JSON.stringify(data);
+      this.rol = valor.substring(7,8);
+      //console.log(this.rol);
+      if(this.rol == '1') {
+        //alert('Cliente');
+        this.router.navigate(['/Cliente']);
+      } else if(this.rol = '2') {
+        //alert('Administrador');
+        this.router.navigate(['/Admin']);
+      }
+    },
+      error => { console.error(error + " ") });
   }
 
 }

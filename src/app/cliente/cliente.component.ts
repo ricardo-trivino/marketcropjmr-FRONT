@@ -24,7 +24,8 @@ export class ClienteComponent implements OnInit {
     (
       private formBuilder: FormBuilder,
       private servi: ServicioMarketService,
-      Router: Router
+      Router: Router,
+      private router: Router
     ) { }
 
   //Consultar todos los tipos de documentos
@@ -33,6 +34,11 @@ export class ClienteComponent implements OnInit {
       //var productos = data;
       this.Productos = data;
     });
+  }
+
+  public CerrarSesion() {
+    localStorage.removeItem("token");
+    this.router.navigate(['/Inicio']);
   }
 
   ngOnInit(): void {

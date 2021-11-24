@@ -12,6 +12,7 @@ import { ServicioMarketService } from '../servicio-market.service';
 export class InicioComponent implements OnInit {
 
   Productos: any = []; //Vector que captura los datos de productos
+  rol: any = []; //rol, verificar en middleware usuario
 
   //Form group 
   ListaProductos = new FormGroup(
@@ -23,7 +24,8 @@ export class InicioComponent implements OnInit {
     (
       private formBuilder: FormBuilder,
       private servi: ServicioMarketService,
-      Router: Router
+      Router: Router,
+      private router:Router
     ) { }
 
   //Consultar todos los tipos de documentos
@@ -35,6 +37,21 @@ export class InicioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //se invoca el servicio para obtener el rol
+    this.servi.getRol().subscribe((data: { roles: [] }) => {
+      //this.rol = JSON.stringify(data);
+      var valor = JSON.stringify(data);
+      this.rol = valor.substring(7, 8);
+      //console.log(this.rol);
+      if (this.rol == '1') {
+        //alert('Cliente');
+        this.router.navigate(['/Cliente']);
+      } else if (this.rol = '2') {
+        //alert('Administrador');
+        this.router.navigate(['/Admin']);
+      }
+    },
+      error => { console.error(error + " ") });
     this.ListaProductos = this.formBuilder.group(
       {
 

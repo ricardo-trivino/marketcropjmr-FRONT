@@ -21,6 +21,7 @@ export class ServicioMarketService {
     this.headers.append("Authorization", "Bearer " + localStorage.getItem("session_us"));*/
   }
 
+  /*********************************************************************/
   // Método Listar de los Tipos de documentos 
   getTiposDoc(): Observable<any> {
 
@@ -60,6 +61,7 @@ export class ServicioMarketService {
 
   }
 
+   /*********************************************************************/
   // Método Listar de los productos
   getProductos(): Observable<any> {
 
@@ -76,6 +78,7 @@ export class ServicioMarketService {
 
   }
 
+   /*********************************************************************/
   // Método para registrar un cliente 
   async insertCliente(ClienteD: any): Promise<any> {
 
@@ -85,6 +88,7 @@ export class ServicioMarketService {
 
   }
 
+   /*********************************************************************/
   // Método iniciar sesión
   Login(LoginD: any): Observable<any> {
 
@@ -102,6 +106,7 @@ export class ServicioMarketService {
     return tok;
   }
 
+   /*********************************************************************/
   // Método Listar de los usuarios
   getUsuarios(): Observable<any> {
 

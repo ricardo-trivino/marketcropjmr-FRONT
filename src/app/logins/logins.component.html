@@ -64,8 +64,7 @@
             <form (ngSubmit)="LoggearCliente()" [formGroup]="LogginGCliente">
                 <div>
                     Usuario
-                    <label for="User"><input type="text" name="User" id="User"
-                            formControlName="textUser"></label>
+                    <label for="User"><input type="text" name="User" id="User" formControlName="textUser"></label>
                 </div>
                 <br>
                 <div>
@@ -74,9 +73,8 @@
                             formControlName="textPass"></label>
                 </div>
                 <br>
-                <!--<button type="submit">Iniciar Sesión</button>-->
-                <!--<button (ngSubmit)="guardarToken()">Iniciar Sesión</button>-->
-                <button (ngSubmit)="getRol()">Iniciar Sesión</button>
+                <button type="submit" id="loggear">Iniciar Sesión</button>
+                <!--<button (ngSubmit)="getRol()">Iniciar Sesión</button>-->
             </form>
 
         </div>
