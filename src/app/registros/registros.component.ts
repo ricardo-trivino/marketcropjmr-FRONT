@@ -60,7 +60,8 @@ export class RegistrosComponent implements OnInit {
           console.log(err);
         });
       this.InsertarGCliente.reset();
-      this.router.navigate(['/Cliente']);
+      alert('Registrado');
+      this.router.navigate(['/Login']);
       /*this.servi.getRol().subscribe((data: { roles: [] }) => {
         //this.rol = JSON.stringify(data);
         var valor = JSON.stringify(data);

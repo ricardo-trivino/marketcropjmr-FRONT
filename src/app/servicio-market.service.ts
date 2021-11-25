@@ -61,7 +61,7 @@ export class ServicioMarketService {
 
   }
 
-   /*********************************************************************/
+  /*********************************************************************/
   // Método Listar de los productos
   getProductos(): Observable<any> {
 
@@ -78,7 +78,7 @@ export class ServicioMarketService {
 
   }
 
-   /*********************************************************************/
+  /*********************************************************************/
   // Método para registrar un cliente 
   async insertCliente(ClienteD: any): Promise<any> {
 
@@ -88,7 +88,7 @@ export class ServicioMarketService {
 
   }
 
-   /*********************************************************************/
+  /*********************************************************************/
   // Método iniciar sesión
   Login(LoginD: any): Observable<any> {
 
@@ -106,7 +106,7 @@ export class ServicioMarketService {
     return tok;
   }
 
-   /*********************************************************************/
+  /*********************************************************************/
   // Método Listar de los usuarios
   getUsuarios(): Observable<any> {
 
@@ -115,7 +115,7 @@ export class ServicioMarketService {
   }
 
   getRol(): Observable<any> {
-    return this.http.get(this.Url + "/usuario", httpOptions);
+    return this.http.get(this.Url + "/middlewares/authtoken", httpOptions);
   }
 
 }

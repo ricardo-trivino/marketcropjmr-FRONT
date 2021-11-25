@@ -1,4 +1,5 @@
 import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
+import jwt_decode from "jwt-decode";
 
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -44,28 +45,32 @@ export class LoginsComponent implements OnInit {
         var valor = JSON.stringify(data);
         this.token = valor.substring(10, 199);
         this.guardarToken(this.token);
-        //se invoca el servicio para obtener el rol
-        this.servi.getRol().subscribe((data: { roles: [] }) => {
-          //this.rol = JSON.stringify(data);
-          var valor = JSON.stringify(data);
-          this.rol = valor.substring(7, 8);
-          console.log(this.rol);
-          if (this.rol == '1') {
-            //alert('Cliente');
-            this.router.navigate(['/Cliente']);
-          } else if (this.rol = '2') {
-            //alert('Administrador');
-            this.router.navigate(['/Admin']);
-          }
-        },
-          error => { console.error(error + " ") });
-        //window.location.reload();
-        //alert(this.token);
-        //localStorage.setItem("session_us", this.token);
+        var valor2 = this.token.split(' ')[0]
+        var valor3 = this.getDecodedAccessToken(valor2);
+        var valor4 = valor3.user[0];
+        var rol = valor4.rol_us;
+        if (rol == 1) {
+          alert('Cliente');
+          this.router.navigate(['/Cliente']);
+        } else if (rol == 2) {
+          alert('Admin');
+          this.router.navigate(['/Admin']);
+        } else {
+          alert('Sin rol');
+        }
       }, error => { console.log(error) });
       this.LogginGCliente.reset();
     } else {
       alert("Hay campos inválidos")
+    }
+  }
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    }
+    catch (Error) {
+      return null;
     }
   }
 
