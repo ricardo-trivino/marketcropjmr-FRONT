@@ -61,10 +61,10 @@
 
             <h2>Registro</h2>
 
-            <form (ngSubmit)="InsertarCliente()" [formGroup]="InsertarGCliente">
+            <form (ngSubmit)="InsertarCliente()" [formGroup]="InsertarGCliente" novalidate>
                 <div>
                     Tipo de documento
-                    <select formControlName="ComboTipoDocPersona" required>
+                    <select formControlName="ComboTipoDocPersona">
                         <option value="" selected>Selecciona una opción</option>
                         <option *ngFor="let tipoDocumento of tiposDocumentos" value="{{ tipoDocumento.id_tipo_doc }}">
                             {{ tipoDocumento.tipo_doc }}
@@ -75,13 +75,13 @@
                 <div>
                     Numero de documento
                     <label for="NumDocCliente"><input type="text" name="NumDocCliente" id="NumDocCliente"
-                            formControlName="textNumDocUs" ngModel required></label>
+                            formControlName="textNumDocUs"></label>
                 </div>
                 <br>
                 <div>
                     Primer nombre
                     <label for="PNombreCliente"><input type="text" name="PNombreCliente" id="PNombreCliente"
-                            formControlName="textPNombreUs" ngModel required></label>
+                            formControlName="textPNombreUs"></label>
                 </div>
                 <br>
                 <div>
@@ -93,30 +93,40 @@
                 <div>
                     Primer apellido
                     <label for="PApellidoCliente"><input type="text" name="PApellidoCliente" id="PApellidoCliente"
-                            formControlName="textPApellidoUs" ngModel required></label>
+                            formControlName="textPApellidoUs"></label>
                 </div>
                 <br>
                 <div>
                     Segundo apellido
                     <label for="SApellidoCliente"><input type="text" name="SApellidoCliente" id="SApellidoCliente"
-                            formControlName="textSApellidoUs" ngModel required></label>
+                            formControlName="textSApellidoUs"></label>
                 </div>
                 <br>
                 <div>
                     Contraseña
                     <label for="ContraCliente"><input type="password" name="ContraCliente" id="ContraCliente"
-                            formControlName="textContrasenaUs" ngModel required></label>
+                            formControlName="textContrasenaUs"></label>
                 </div>
                 <br>
                 <div>
                     Nombre de usuario
                     <label for="NickCliente"><input type="text" name="NickCliente" id="NickCliente"
-                            formControlName="textNickNameUs" ngModel required></label>
+                            formControlName="textNickNameUs"></label>
+                </div>
+                <div *ngIf="
+                InsertarGCliente.controls['textNumDocUs'].invalid &&
+                (InsertarGCliente.controls['textNumDocUs'].dirty || InsertarGCliente.controls['textNumDocUs'].touched)
+                " 
+                class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textNumDocUs'].errors?.required">
+                        Numero de documento es requerido
+                    </div>
                 </div>
                 <br>
                 <button type="submit">Registrarme</button>
             </form>
-
+            <!--<p>Form value: {{ InsertarGCliente.value | json }}</p>
+            <p>Form status: {{InsertarGCliente.status | json }}</p>-->
         </div>
     </main>
     <section>

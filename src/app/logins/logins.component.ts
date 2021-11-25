@@ -76,7 +76,7 @@ export class LoginsComponent implements OnInit {
       //this.rol = JSON.stringify(data);
       var valor = JSON.stringify(data);
       this.rol = valor.substring(7,8);
-      //console.log(this.rol);
+      console.log(this.rol);
       if(this.rol == '1') {
         //alert('Cliente');
         this.router.navigate(['/Cliente']);
