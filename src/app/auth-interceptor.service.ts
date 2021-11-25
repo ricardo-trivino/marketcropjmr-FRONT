@@ -15,11 +15,14 @@ export class AuthInterceptorService {
     let request = req;
 
     if (token) {
+      alert('Logeado');
       request = req.clone({
         setHeaders: {
           authorization: `Bearer ${token}`
         }
       });
+    } else {
+      history.forward();
     }
 
     return next.handle(request);

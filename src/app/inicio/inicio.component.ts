@@ -42,21 +42,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.CerrarSesion();
-    //se invoca el servicio para obtener el rol
-    /*this.servi.getRol().subscribe((data: { roles: [] }) => {
-      //this.rol = JSON.stringify(data);
-      var valor = JSON.stringify(data);
-      this.rol = valor.substring(7, 8);
-      //console.log(this.rol);
-      if (this.rol == '1') {
-        //alert('Cliente');
-        this.router.navigate(['/Cliente']);
-      } else if (this.rol = '2') {
-        //alert('Administrador');
-        this.router.navigate(['/Admin']);
-      }
-    },
-      error => { console.error(error + " ") });*/
+    //history.forward();
     this.ListaProductos = this.formBuilder.group(
       {
 
