@@ -144,6 +144,104 @@ img {
     object-fit: contain;
 }
 
+.requerido1 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 52px;
+    left: auto;
+    margin-left: 380px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido2 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 104px;
+    left: auto;
+    margin-left: 430px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido3 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 156px;
+    left: auto;
+    margin-left: 370px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido4 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 257px;
+    left: auto;
+    margin-left: 365px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido5 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 308px;
+    left: auto;
+    margin-left: 380px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido6 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 358px;
+    left: auto;
+    margin-left: 335px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido7 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 407px;
+    left: auto;
+    margin-left: 395px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
 footer {
     width: 100vw;
     position: fixed;

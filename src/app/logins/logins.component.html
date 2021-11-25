@@ -66,11 +66,27 @@
                     Usuario
                     <label for="User"><input type="text" name="User" id="User" formControlName="textUser"></label>
                 </div>
+                <div *ngIf="
+                LogginGCliente.controls['textUser'].invalid &&
+                (LogginGCliente.controls['textUser'].dirty || LogginGCliente.controls['textUser'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="LogginGCliente.controls['textUser'].errors?.required" class="requerido1">
+                        Campo requerido
+                    </div>
+                </div>
                 <br>
                 <div>
                     Contraseña
                     <label for="Password"><input type="password" name="Password" id="Password"
                             formControlName="textPass"></label>
+                </div>
+                <div *ngIf="
+                LogginGCliente.controls['textPass'].invalid &&
+                (LogginGCliente.controls['textPass'].dirty || LogginGCliente.controls['textPass'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="LogginGCliente.controls['textPass'].errors?.required" class="requerido2">
+                        Campo requerido
+                    </div>
                 </div>
                 <br>
                 <button type="submit" id="loggear">Iniciar Sesión</button>

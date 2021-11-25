@@ -71,17 +71,41 @@
                         </option>
                     </select>
                 </div>
+                <div *ngIf="
+                InsertarGCliente.controls['ComboTipoDocPersona'].invalid &&
+                (InsertarGCliente.controls['ComboTipoDocPersona'].dirty || InsertarGCliente.controls['ComboTipoDocPersona'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['ComboTipoDocPersona'].errors?.required" class="requerido1">
+                        Campo requerido
+                    </div>
+                </div>
                 <br>
                 <div>
                     Numero de documento
                     <label for="NumDocCliente"><input type="text" name="NumDocCliente" id="NumDocCliente"
                             formControlName="textNumDocUs"></label>
                 </div>
+                <div *ngIf="
+                InsertarGCliente.controls['textNumDocUs'].invalid &&
+                (InsertarGCliente.controls['textNumDocUs'].dirty || InsertarGCliente.controls['textNumDocUs'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textNumDocUs'].errors?.required" class="requerido2">
+                        Campo requerido
+                    </div>
+                </div>
                 <br>
                 <div>
                     Primer nombre
                     <label for="PNombreCliente"><input type="text" name="PNombreCliente" id="PNombreCliente"
                             formControlName="textPNombreUs"></label>
+                </div>
+                <div *ngIf="
+                InsertarGCliente.controls['textPNombreUs'].invalid &&
+                (InsertarGCliente.controls['textPNombreUs'].dirty || InsertarGCliente.controls['textPNombreUs'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textPNombreUs'].errors?.required" class="requerido3">
+                        Campo requerido
+                    </div>
                 </div>
                 <br>
                 <div>
@@ -95,17 +119,41 @@
                     <label for="PApellidoCliente"><input type="text" name="PApellidoCliente" id="PApellidoCliente"
                             formControlName="textPApellidoUs"></label>
                 </div>
+                <div *ngIf="
+                InsertarGCliente.controls['textPApellidoUs'].invalid &&
+                (InsertarGCliente.controls['textPApellidoUs'].dirty || InsertarGCliente.controls['textPApellidoUs'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textPApellidoUs'].errors?.required" class="requerido4">
+                        Campo requerido
+                    </div>
+                </div>
                 <br>
                 <div>
                     Segundo apellido
                     <label for="SApellidoCliente"><input type="text" name="SApellidoCliente" id="SApellidoCliente"
                             formControlName="textSApellidoUs"></label>
                 </div>
+                <div *ngIf="
+                InsertarGCliente.controls['textSApellidoUs'].invalid &&
+                (InsertarGCliente.controls['textSApellidoUs'].dirty || InsertarGCliente.controls['textSApellidoUs'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textSApellidoUs'].errors?.required" class="requerido5">
+                        Campo requerido
+                    </div>
+                </div>
                 <br>
                 <div>
                     Contraseña
                     <label for="ContraCliente"><input type="password" name="ContraCliente" id="ContraCliente"
                             formControlName="textContrasenaUs"></label>
+                </div>
+                <div *ngIf="
+                InsertarGCliente.controls['textContrasenaUs'].invalid &&
+                (InsertarGCliente.controls['textContrasenaUs'].dirty || InsertarGCliente.controls['textContrasenaUs'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textContrasenaUs'].errors?.required" class="requerido6">
+                        Campo requerido
+                    </div>
                 </div>
                 <br>
                 <div>
@@ -114,19 +162,18 @@
                             formControlName="textNickNameUs"></label>
                 </div>
                 <div *ngIf="
-                InsertarGCliente.controls['textNumDocUs'].invalid &&
-                (InsertarGCliente.controls['textNumDocUs'].dirty || InsertarGCliente.controls['textNumDocUs'].touched)
-                " 
-                class="alert alert-danger">
-                    <div *ngIf="InsertarGCliente.controls['textNumDocUs'].errors?.required">
-                        Numero de documento es requerido
+                InsertarGCliente.controls['textNickNameUs'].invalid &&
+                (InsertarGCliente.controls['textNickNameUs'].dirty || InsertarGCliente.controls['textNickNameUs'].touched)
+                " class="alert alert-danger">
+                    <div *ngIf="InsertarGCliente.controls['textNickNameUs'].errors?.required" class="requerido7">
+                        Campo requerido
                     </div>
                 </div>
                 <br>
                 <button type="submit">Registrarme</button>
             </form>
-            <!--<p>Form value: {{ InsertarGCliente.value | json }}</p>
-            <p>Form status: {{InsertarGCliente.status | json }}</p>-->
+            <!--<p>Form value: {{ InsertarGCliente.value | json }}</p>-->
+            <!--<h3>Estado: {{InsertarGCliente.status | json }}</h3>-->
         </div>
     </main>
     <section>

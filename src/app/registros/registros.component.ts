@@ -71,26 +71,18 @@ export class RegistrosComponent implements OnInit {
     localStorage.removeItem("token");
   }
 
-  /*onSubmit() {
-    if (this.InsertarGCliente.valid) {
-      console.log(this.InsertarGCliente.value);
-    } else {
-      alert("Hay campos obligatorios vacíos")
-    }
-  }*/
-
   ngOnInit() {
     //se construye el grupo de formulario y sus controles al iniciar la página
     this.InsertarGCliente = this.formBuilder.group(
       {
         ComboTipoDocPersona: ["", Validators.required],
-        textNumDocUs: ["", Validators.required/*, Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
-        textPNombreUs: ["", Validators.required/*, Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
-        textSNombreUs: [],
-        textPApellidoUs: ["", Validators.required/*, Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
-        textSApellidoUs: ["", Validators.required/*, Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
-        textContrasenaUs: ["", Validators.required/*, Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
-        textNickNameUs: ["", Validators.required/*, Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/]
+        textNumDocUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+        textPNombreUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+        textSNombreUs: ["", ],
+        textPApellidoUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+        textSApellidoUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+        textContrasenaUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+        textNickNameUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/]
       });
 
     //se invoca el servicio y se carga el combobox de los tipos de documentos

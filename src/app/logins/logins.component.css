@@ -145,6 +145,34 @@ img {
     object-fit: contain;
 }
 
+.requerido1 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 52px;
+    left: auto;
+    margin-left: 310px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
+.requerido2 {
+    font-size: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 6px 6px 6px 6px;
+    top: 104px;
+    left: auto;
+    margin-left: 340px;
+    padding: 8px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 150px;
+    z-index: 15;
+}
+
 footer {
     width: 100vw;
     position: fixed;

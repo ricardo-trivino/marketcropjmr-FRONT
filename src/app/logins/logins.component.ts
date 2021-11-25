@@ -28,26 +28,30 @@ export class LoginsComponent implements OnInit {
       private formBuilder: FormBuilder,
       private servi: ServicioMarketService,
       Router: Router,
-      private router:Router
+      private router: Router
     ) { }
 
   //Loggear un cliente
   public LoggearCliente() {
-    var datosvalor1 = this.LogginGCliente.getRawValue()['textUser'];
-    var datosvalor2 = this.LogginGCliente.getRawValue()['textPass'];
-    var cadena = {
-      "nickname_us": datosvalor1, "contrasena_us": datosvalor2
-    };
+    if (this.LogginGCliente.valid) {
+      var datosvalor1 = this.LogginGCliente.getRawValue()['textUser'];
+      var datosvalor2 = this.LogginGCliente.getRawValue()['textPass'];
+      var cadena = {
+        "nickname_us": datosvalor1, "contrasena_us": datosvalor2
+      };
 
-    this.servi.Login(cadena).subscribe((data: {}) => {
-      var valor = JSON.stringify(data);
-      this.token = valor.substring(10, 199);
-      this.guardarToken(this.token);
-      window.location.reload();
-      //alert(this.token);
-      //localStorage.setItem("session_us", this.token);
-    }, error => { console.log(error) });
-    this.LogginGCliente.reset();
+      this.servi.Login(cadena).subscribe((data: {}) => {
+        var valor = JSON.stringify(data);
+        this.token = valor.substring(10, 199);
+        this.guardarToken(this.token);
+        window.location.reload();
+        //alert(this.token);
+        //localStorage.setItem("session_us", this.token);
+      }, error => { console.log(error) });
+      this.LogginGCliente.reset();
+    } else {
+      alert("Hay campos inválidos")
+    }
   }
 
   guardarToken(token: any) {
@@ -71,16 +75,23 @@ export class LoginsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //se construye el grupo de formulario y sus controles al iniciar la página
+    this.LogginGCliente = this.formBuilder.group(
+      {
+        textUser: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+        textPass: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
+      });
+
     //se invoca el servicio para obtener el rol
     this.servi.getRol().subscribe((data: { roles: [] }) => {
       //this.rol = JSON.stringify(data);
       var valor = JSON.stringify(data);
-      this.rol = valor.substring(7,8);
+      this.rol = valor.substring(7, 8);
       console.log(this.rol);
-      if(this.rol == '1') {
+      if (this.rol == '1') {
         //alert('Cliente');
         this.router.navigate(['/Cliente']);
-      } else if(this.rol = '2') {
+      } else if (this.rol = '2') {
         //alert('Administrador');
         this.router.navigate(['/Admin']);
       }
