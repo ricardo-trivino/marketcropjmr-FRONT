@@ -31,9 +31,8 @@ export class LoginsComponent implements OnInit {
       private router:Router
     ) { }
 
-  //Insertar un cliente
+  //Loggear un cliente
   public LoggearCliente() {
-
     var datosvalor1 = this.LogginGCliente.getRawValue()['textUser'];
     var datosvalor2 = this.LogginGCliente.getRawValue()['textPass'];
     var cadena = {

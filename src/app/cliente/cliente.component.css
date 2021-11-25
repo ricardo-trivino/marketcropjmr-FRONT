@@ -22,7 +22,7 @@
 
 .encabezado a {
     position:fixed;
-    top: 225px;
+    top: 208px;
     left: 248px;
     font-family: "candara", "ginebra";
     font-weight: bold;
@@ -64,8 +64,29 @@ img {
     margin-top: 45px;
 }
 
+.cerrar {
+    margin-left: 1550px;
+    transform:translateY(-100px);
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cerrar:hover {
+    background-color: #ffffff;
+    color: #4CAF50;
+    outline: 1px ridge rgba(71, 211, 5, 0.6);
+    transition: 1s;
+}
+
 main {
-    margin-top: 250px;
+    margin-top: 272px;
     padding-bottom: 220px;
 }
 

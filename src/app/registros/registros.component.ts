@@ -30,7 +30,8 @@ export class RegistrosComponent implements OnInit {
     (
       private formBuilder: FormBuilder,
       private servi: ServicioMarketService,
-      Router: Router
+      Router: Router,
+      private router: Router
     ) { }
 
   //Insertar un cliente
@@ -57,7 +58,12 @@ export class RegistrosComponent implements OnInit {
         console.log(err)
       });
     this.InsertarGCliente.reset();
+    //window.location.reload();
+    this.router.navigate(['/Inicio']);
+  }
 
+  public CerrarSesion() {
+    localStorage.removeItem("token");
   }
 
   ngOnInit() {
