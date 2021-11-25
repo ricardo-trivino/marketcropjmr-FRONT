@@ -62,22 +62,6 @@ export class RegistrosComponent implements OnInit {
       this.InsertarGCliente.reset();
       alert('Registrado');
       this.router.navigate(['/Login']);
-      /*this.servi.getRol().subscribe((data: { roles: [] }) => {
-        //this.rol = JSON.stringify(data);
-        var valor = JSON.stringify(data);
-        this.rol = valor.substring(7, 8);
-        console.log(this.rol);
-        if (this.rol == '1') {
-          //alert('Cliente');
-          this.router.navigate(['/Cliente']);
-        } else if (this.rol = '2') {
-          //alert('Administrador');
-          this.router.navigate(['/Admin']);
-        }
-      },
-        error => { console.error(error + " ") });*/
-      //window.location.reload();
-      //this.router.navigate(['/Inicio']);
     } else {
       alert("Hay campos inválidos")
     }

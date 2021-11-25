@@ -61,7 +61,7 @@ export class LoginsComponent implements OnInit {
       }, error => { console.log(error) });
       this.LogginGCliente.reset();
     } else {
-      alert("Hay campos inválidos")
+      alert("Datos incorrectos")
     }
   }
 
@@ -81,13 +81,6 @@ export class LoginsComponent implements OnInit {
 
   leerToken() {
     localStorage.getItem("token");
-    //localStorage.getItem("token")
-  }
-
-  public getRol() {
-    this.servi.getRol().subscribe((data: any) => {
-      this.rol = JSON.stringify(data);
-    });
   }
 
   public CerrarSesion() {
@@ -102,22 +95,6 @@ export class LoginsComponent implements OnInit {
         textUser: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
         textPass: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
       });
-
-    //se invoca el servicio para obtener el rol
-    /*this.servi.getRol().subscribe((data: { roles: [] }) => {
-      //this.rol = JSON.stringify(data);
-      var valor = JSON.stringify(data);
-      this.rol = valor.substring(7, 8);
-      console.log(this.rol);
-      if (this.rol == '1') {
-        //alert('Cliente');
-        this.router.navigate(['/Cliente']);
-      } else if (this.rol = '2') {
-        //alert('Administrador');
-        this.router.navigate(['/Admin']);
-      }
-    },
-      error => { console.error(error + " ") });*/
   }
 
 }
