@@ -44,7 +44,22 @@ export class LoginsComponent implements OnInit {
         var valor = JSON.stringify(data);
         this.token = valor.substring(10, 199);
         this.guardarToken(this.token);
-        window.location.reload();
+        //se invoca el servicio para obtener el rol
+        this.servi.getRol().subscribe((data: { roles: [] }) => {
+          //this.rol = JSON.stringify(data);
+          var valor = JSON.stringify(data);
+          this.rol = valor.substring(7, 8);
+          console.log(this.rol);
+          if (this.rol == '1') {
+            //alert('Cliente');
+            this.router.navigate(['/Cliente']);
+          } else if (this.rol = '2') {
+            //alert('Administrador');
+            this.router.navigate(['/Admin']);
+          }
+        },
+          error => { console.error(error + " ") });
+        //window.location.reload();
         //alert(this.token);
         //localStorage.setItem("session_us", this.token);
       }, error => { console.log(error) });
@@ -55,13 +70,13 @@ export class LoginsComponent implements OnInit {
   }
 
   guardarToken(token: any) {
-    this.servi.guardarToken(this.token);
-    //localStorage.setItem("session_us", token);
+    //this.servi.guardarToken(this.token);
+    localStorage.setItem("token", token);
   }
 
   leerToken() {
     localStorage.getItem("token");
-    //localStorage.getItem("session_us")
+    //localStorage.getItem("token")
   }
 
   public getRol() {
@@ -75,7 +90,7 @@ export class LoginsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.CerrarSesion();
+    this.CerrarSesion();
     //se construye el grupo de formulario y sus controles al iniciar la página
     this.LogginGCliente = this.formBuilder.group(
       {
@@ -84,7 +99,7 @@ export class LoginsComponent implements OnInit {
       });
 
     //se invoca el servicio para obtener el rol
-    this.servi.getRol().subscribe((data: { roles: [] }) => {
+    /*this.servi.getRol().subscribe((data: { roles: [] }) => {
       //this.rol = JSON.stringify(data);
       var valor = JSON.stringify(data);
       this.rol = valor.substring(7, 8);
@@ -97,7 +112,7 @@ export class LoginsComponent implements OnInit {
         this.router.navigate(['/Admin']);
       }
     },
-      error => { console.error(error + " ") });
+      error => { console.error(error + " ") });*/
   }
 
 }

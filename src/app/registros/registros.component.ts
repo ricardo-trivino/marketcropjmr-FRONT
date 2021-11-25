@@ -12,7 +12,8 @@ import { ServicioMarketService } from '../servicio-market.service';
 })
 export class RegistrosComponent implements OnInit {
 
-  tiposDocumentos: any = []; //Vector que captura la data para el combo de los tipos de documentos 
+  tiposDocumentos: any = []; //Vector que captura la data para el combo de los tipos de documentos
+  rol: any = []; //rol, verificar en middleware usuario
 
   InsertarGCliente = new FormGroup(
     {
@@ -59,7 +60,22 @@ export class RegistrosComponent implements OnInit {
           console.log(err);
         });
       this.InsertarGCliente.reset();
-      window.location.reload();
+      this.router.navigate(['/Cliente']);
+      /*this.servi.getRol().subscribe((data: { roles: [] }) => {
+        //this.rol = JSON.stringify(data);
+        var valor = JSON.stringify(data);
+        this.rol = valor.substring(7, 8);
+        console.log(this.rol);
+        if (this.rol == '1') {
+          //alert('Cliente');
+          this.router.navigate(['/Cliente']);
+        } else if (this.rol = '2') {
+          //alert('Administrador');
+          this.router.navigate(['/Admin']);
+        }
+      },
+        error => { console.error(error + " ") });*/
+      //window.location.reload();
       //this.router.navigate(['/Inicio']);
     } else {
       alert("Hay campos inválidos")
@@ -71,14 +87,14 @@ export class RegistrosComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.CerrarSesion();
+    this.CerrarSesion();
     //se construye el grupo de formulario y sus controles al iniciar la página
     this.InsertarGCliente = this.formBuilder.group(
       {
         ComboTipoDocPersona: ["", Validators.required],
         textNumDocUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
         textPNombreUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
-        textSNombreUs: ["", ],
+        textSNombreUs: ["",],
         textPApellidoUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
         textSApellidoUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],
         textContrasenaUs: ["", Validators.required/*, Validators.maxLength(20), Validators.pattern(/[A-Za-z0-9_-]{1,15}/)*/],

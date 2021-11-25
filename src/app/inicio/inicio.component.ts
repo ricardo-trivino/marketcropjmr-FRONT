@@ -25,7 +25,7 @@ export class InicioComponent implements OnInit {
       private formBuilder: FormBuilder,
       private servi: ServicioMarketService,
       Router: Router,
-      private router:Router
+      private router: Router
     ) { }
 
   //Consultar todos los tipos de documentos
@@ -36,9 +36,14 @@ export class InicioComponent implements OnInit {
     });
   }
 
+  public CerrarSesion() {
+    localStorage.removeItem("token");
+  }
+
   ngOnInit(): void {
+    this.CerrarSesion();
     //se invoca el servicio para obtener el rol
-    this.servi.getRol().subscribe((data: { roles: [] }) => {
+    /*this.servi.getRol().subscribe((data: { roles: [] }) => {
       //this.rol = JSON.stringify(data);
       var valor = JSON.stringify(data);
       this.rol = valor.substring(7, 8);
@@ -51,7 +56,7 @@ export class InicioComponent implements OnInit {
         this.router.navigate(['/Admin']);
       }
     },
-      error => { console.error(error + " ") });
+      error => { console.error(error + " ") });*/
     this.ListaProductos = this.formBuilder.group(
       {
 
