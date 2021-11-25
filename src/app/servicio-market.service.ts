@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 
 const httpOptions =
 {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization': 'Bearer ' + localStorage.getItem("session_us") })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization': 'Bearer ' + localStorage.getItem("token") })
 };
 
 @Injectable({

@@ -36,7 +36,6 @@ export class RegistrosComponent implements OnInit {
 
   //Insertar un cliente
   public InsertarCliente() {
-
     if (this.InsertarGCliente.valid) {
       console.log(this.InsertarGCliente.value);
       var datosvalor1 = this.InsertarGCliente.getRawValue()['ComboTipoDocPersona'];
@@ -54,13 +53,13 @@ export class RegistrosComponent implements OnInit {
 
       this.servi.insertCliente(cadena).then
         (res => {
-          console.log(res)
+          console.log(res);
         }
         ).catch(err => {
-          console.log(err)
+          console.log(err);
         });
       this.InsertarGCliente.reset();
-      //window.location.reload();
+      window.location.reload();
       //this.router.navigate(['/Inicio']);
     } else {
       alert("Hay campos inválidos")
@@ -72,6 +71,7 @@ export class RegistrosComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this.CerrarSesion();
     //se construye el grupo de formulario y sus controles al iniciar la página
     this.InsertarGCliente = this.formBuilder.group(
       {

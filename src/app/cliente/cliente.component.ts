@@ -38,7 +38,7 @@ export class ClienteComponent implements OnInit {
 
   public CerrarSesion() {
     localStorage.removeItem("token");
-    this.router.navigate(['/Inicio']);
+    this.router.navigate(['/Login']);
   }
 
   ngOnInit(): void {
