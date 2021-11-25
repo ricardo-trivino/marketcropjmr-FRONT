@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 import { ServicioMarketService } from '../servicio-market.service';
 import { ClienteComponent } from '../cliente/cliente.component';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-logins',
@@ -40,7 +41,6 @@ export class LoginsComponent implements OnInit {
       var cadena = {
         "nickname_us": datosvalor1, "contrasena_us": datosvalor2
       };
-
       this.servi.Login(cadena).subscribe((data: {}) => {
         var valor = JSON.stringify(data);
         this.token = valor.substring(10, 199);
@@ -58,10 +58,10 @@ export class LoginsComponent implements OnInit {
         } else {
           alert('Sin rol');
         }
-      }, error => { console.log(error) });
+      }, error => { alert('Datos incorrectos') });
       this.LogginGCliente.reset();
     } else {
-      alert("Datos incorrectos")
+      alert("Campos inválidos")
     }
   }
 
