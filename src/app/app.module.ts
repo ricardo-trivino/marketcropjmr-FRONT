@@ -11,6 +11,7 @@ import { ServicioMarketService } from './servicio-market.service';
 
 // Interceptores
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { AuthGuardService } from './auth-guard.service';
 
 import { AppComponent } from '../app/appcomponent/app.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -55,14 +56,17 @@ const appRoutes: Routes =
     {
       path: 'Admin',
       component: AdminComponent,
+      //canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
     },
     {
       path: 'Cliente',
       component: ClienteComponent,
+      //canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
     },
     {
       path: 'Usuario',
       component: UsuarioComponent,
+      //canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
     },
     {
       path: 'Nosotros',
@@ -127,6 +131,7 @@ const appRoutes: Routes =
   //providers: [ServicioMarketService],
   providers: [
     ServicioMarketService,
+    //[AuthGuardService], //Agregamos a los providers el guard
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

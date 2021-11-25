@@ -20,8 +20,8 @@ export class AuthInterceptorService {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    
     const token = localStorage.getItem('token');
-
     let request = req;
 
     if (token) {
@@ -31,7 +31,6 @@ export class AuthInterceptorService {
       var rol = valor4.rol_us;
       if (rol == 1) {
         //alert('Cliente');
-        //alert('Logeado');
         request = req.clone({
           setHeaders: {
             authorization: `Bearer ${token}`
@@ -39,7 +38,6 @@ export class AuthInterceptorService {
         });
       } else if (rol == 2) {
         //alert('Admin');
-        //alert('Logeado');
         request = req.clone({
           setHeaders: {
             authorization: `Bearer ${token}`
