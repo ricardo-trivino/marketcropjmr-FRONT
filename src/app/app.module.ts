@@ -56,12 +56,12 @@ const appRoutes: Routes =
     {
       path: 'Admin',
       component: AdminComponent,
-      //canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
+      canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
     },
     {
       path: 'Cliente',
       component: ClienteComponent,
-      //canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
+      canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
     },
     {
       path: 'Usuario',
@@ -131,7 +131,7 @@ const appRoutes: Routes =
   //providers: [ServicioMarketService],
   providers: [
     ServicioMarketService,
-    //[AuthGuardService], //Agregamos a los providers el guard
+    [AuthGuardService], //Agregamos a los providers el guard
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

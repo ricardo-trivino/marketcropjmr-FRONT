@@ -88,6 +88,7 @@ export class LoginsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //window.history.forward();
     this.CerrarSesion();
     //se construye el grupo de formulario y sus controles al iniciar la página
     this.LogginGCliente = this.formBuilder.group(

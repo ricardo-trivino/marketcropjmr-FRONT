@@ -20,7 +20,7 @@ export class AuthGuardService implements CanActivate {
     }
   }
 
-  public canActivate() {
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
     const token = localStorage.getItem('token');
 
@@ -33,7 +33,7 @@ export class AuthGuardService implements CanActivate {
         //alert('Cliente');
         //this.router.navigate(['/Cliente']); //Lo enviamos a la página que queramos
         //history.forward();
-        return false;
+        return true;
       } else if (rol == 2) {
         //alert('Admin');
         //this.router.navigate(['/Admin']); //Lo enviamos a la página que 
@@ -42,12 +42,12 @@ export class AuthGuardService implements CanActivate {
       } else {
         //alert('Sin rol');
         this.router.navigate(['/Inicio']); //Lo enviamos a la página que queramos
-        history.forward();
+        window.history.forward();
         return false;
       }
     } else {
       this.router.navigate(['/Inicio']); //Lo enviamos a la página que queramos
-      history.forward();
+      window.history.forward();
       return false;
     }
     //return true; //Este camino deja continuar con la vista con normalidad
