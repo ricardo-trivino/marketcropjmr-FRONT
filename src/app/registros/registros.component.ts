@@ -55,9 +55,9 @@ export class RegistrosComponent implements OnInit {
       this.servi.insertCliente(cadena).then
         (res => {
           console.log(res);
-        }
-        ).catch(err => {
-          console.log(err);
+        }).catch(err => {
+          //console.log(err);
+          alert('usuario existente');
         });
       this.InsertarGCliente.reset();
       alert('Registrado');
