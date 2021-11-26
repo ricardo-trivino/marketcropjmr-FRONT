@@ -20,7 +20,7 @@ export class AuthInterceptorService {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+
     const token = localStorage.getItem('token');
     let request = req;
 
@@ -45,11 +45,17 @@ export class AuthInterceptorService {
         });
       } else {
         //alert('Sin rol');
-        history.forward();
+        //history.forward();
+        window.location.hash = "no-back-button";
+        window.location.hash = "Again-No-back-button";
+        window.onhashchange = function () { window.location.hash = "no-back-button"; }
       }
 
     } else {
-      history.forward();
+      //history.forward();
+      window.location.hash = "no-back-button";
+      window.location.hash = "Again-No-back-button";
+      window.onhashchange = function () { window.location.hash = "no-back-button"; }
     }
 
     return next.handle(request);

@@ -42,12 +42,12 @@ export class AuthGuardService implements CanActivate {
       } else {
         //alert('Sin rol');
         this.router.navigate(['/Inicio']); //Lo enviamos a la página que queramos
-        window.history.forward();
+        //window.history.forward();
         return false;
       }
     } else {
       this.router.navigate(['/Inicio']); //Lo enviamos a la página que queramos
-      window.history.forward();
+      //window.history.forward();
       return false;
     }
     //return true; //Este camino deja continuar con la vista con normalidad

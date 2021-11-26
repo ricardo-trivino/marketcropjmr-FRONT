@@ -66,7 +66,7 @@ const appRoutes: Routes =
     {
       path: 'Usuario',
       component: UsuarioComponent,
-      //canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
+      canActivate: [AuthGuardService] //Acá indicamos cual es el guard y que tipo 
     },
     {
       path: 'Nosotros',
